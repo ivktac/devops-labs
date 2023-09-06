@@ -1,0 +1,19 @@
+name: Telegram Notifications
+on:
+  pull_request:
+    types: [opened]
+jobs:
+  telegram:
+    runs-on: ubuntu-latest
+    steps:
+      - name: send telegram message
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }} 
+          format: markdown
+          message: |
+            New pull request opened in ${{ github.repository }} by ${{ github.actor }}
+            *Title:* ${{ github.event.pull_request.title }}
+            *Url:* ${{ github.event.pull_request.html_url }}
+            
