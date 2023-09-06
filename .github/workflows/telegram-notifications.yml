@@ -13,4 +13,7 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }} 
           format: markdown
           message: |
-            New PR (*${{ github.event.pull_request.title }}*)[${{ github.event.pull_request.html_url }}] opened by *${{ github.event.pull_request.user.login }}*.
+            New pull request opened in ${{ github.repository }} by ${{ github.actor }}
+            *Title:* ${{ github.event.pull_request.title }}
+            *Url:* ${{ github.event.pull_request.html_url }}
+            
