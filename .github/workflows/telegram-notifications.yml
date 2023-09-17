@@ -1,7 +1,7 @@
 name: Telegram Notifications
 on:
   pull_request:
-    types: [opened]
+    types: [opened, closed]
 jobs:
   telegram:
     runs-on: ubuntu-latest
