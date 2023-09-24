@@ -1,0 +1,7 @@
+[language-server.copilot]
+command = "copilot"
+args = ["--stdio"]
+
+[[language]]
+language-servers = ["bash-language-server", "copilot"]
+name = "bash"
