@@ -1,7 +1,7 @@
 #!/bin/bash
 
 LOGFILE=/var/log/redis/redis-server.log
-TMPFILE=/tmp/redis-server.log
+TMPFILE=/var/log/redis-server.log
 
 if [ ! -f "$TMPFILE" ]; then
   touch "$TMPFILE"
