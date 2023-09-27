@@ -18,7 +18,7 @@ COPY monitor-redis-log.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/monitor-redis-log.sh
 
 # Set up the cron job
-RUN echo "*/15 * * * * /usr/local/bin/monitor-redis-log.sh" | crontab -
+RUN echo "*/5 * * * * /usr/local/bin/monitor-redis-log.sh" | crontab -
 
 # Start Redis and cron
 CMD ["sh", "-c", "service cron start && redis-server"]

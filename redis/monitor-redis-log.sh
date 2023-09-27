@@ -12,10 +12,10 @@ if [ ! -f "$LOGFILE" ]; then
   exit 1
 fi
 
-checksum1=$(md5sum $LOGFILE)
-cheksum2=$(cat $TMPFILE)
+checksum1=$(md5sum $LOGFILE | awk '{ print $1 }')
+cheksum2=$(cat $TMPFILE | grep -o '^[^ ]*')
 
 if [ "$checksum1" != "$checksum2" ]; then
-  echo "$checksum1" > "$TMPFILE"
-  echo "Redis log file has changed!"
+  echo "$checksum1 $(date)" >> "$TMPFILE"
+  cat "$TMPFILE"
 fi
