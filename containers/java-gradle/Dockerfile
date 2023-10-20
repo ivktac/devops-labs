@@ -11,15 +11,11 @@ RUN wget https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.
   unzip -d /opt/gradle /tmp/gradle-${GRADLE_VERSION}-bin.zip && \
   rm /tmp/gradle-${GRADLE_VERSION}-bin.zip
 
-
 ENV GRADLE_HOME=/opt/gradle/gradle-${GRADLE_VERSION}
 ENV PATH=${GRADLE_HOME}/bin:${PATH}
 
-
-# COPY gradle-demo /usr/src/app
-
+# COPY . /usr/src/app
 # WORKDIR /usr/src/app
-
 # RUN ["gradle", "build"]
 
 CMD [ "gradle", "--version"]
