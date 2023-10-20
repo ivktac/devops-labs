@@ -1,0 +1,24 @@
+# Ignore all files and directories that start with a dot
+.*
+
+# Ignore the git directory
+.git/
+
+# Ignore the build directory
+build/
+
+# Ignore the Gradle cache
+.gradle/
+
+# Ignore the Gradle wrapper
+gradle/wrapper/gradle-wrapper.jar
+gradle/wrapper/gradle-wrapper.properties
+
+# Ignore any files that end with .iml
+*.iml
+
+# Ignore any files that end with .log
+*.log
+
+# Ignore any files that end with .swp
+*.swp
