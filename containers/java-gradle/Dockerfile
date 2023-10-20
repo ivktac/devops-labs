@@ -4,7 +4,7 @@ FROM openjdk:${JAVA_VERSION}
 
 LABEL maintainer="Ivan Tkachuk"
 
-ENV GRADLE_VERSION=7.6.3
+ENV GRADLE_VERSION=7.0.1
 
 # See more: https://linuxize.com/post/how-to-install-gradle-on-debian-10/#downloading-gradle
 RUN wget https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip -P /tmp && \
