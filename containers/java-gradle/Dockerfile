@@ -7,17 +7,19 @@ LABEL maintainer="Ivan Tkachuk"
 ENV GRADLE_VERSION=7.6.3
 
 # See more: https://linuxize.com/post/how-to-install-gradle-on-debian-10/#downloading-gradle
-RUN wget -O gradle.zip "https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip" && \
-  unzip gradle.zip && \
-  rm gradle.zip && \
-  mv "gradle-${GRADLE_VERSION}" /opt/gradle && \
-  ln -s /opt/gradle/bin/gradle /usr/bin/gradle
+RUN wget https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip -P /tmp && \
+  unzip -d /opt/gradle /tmp/gradle-${GRADLE_VERSION}-bin.zip && \
+  rm /tmp/gradle-${GRADLE_VERSION}-bin.zip
 
 
-COPY gradle-demo /usr/src/app
+ENV GRADLE_HOME=/opt/gradle/gradle-${GRADLE_VERSION}
+ENV PATH=${GRADLE_HOME}/bin:${PATH}
 
-WORKDIR /usr/src/app
 
-RUN ["gradle", "build"]
+# COPY gradle-demo /usr/src/app
+
+# WORKDIR /usr/src/app
+
+# RUN ["gradle", "build"]
 
 CMD [ "gradle", "--version"]
