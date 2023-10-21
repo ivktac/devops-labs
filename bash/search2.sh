@@ -1,17 +1,17 @@
-#!bin/bash
+#!/bin/bash
 
 while getopts ":p:s:" opt; do
   case $opt in
-  p) DIRECTORY="$OPTARG" ;;
-  s) TEXT="$OPTARG" ;;
-  \?)
-    echo "Invalid option: -$OPTARG" >&2
-    exit 1
-    ;;
-  :)
-    echo "Option -$OPTARG requires an argument." >&2
-    exit 1
-    ;;
+    p) DIRECTORY="$OPTARG" ;;
+    s) TEXT="$OPTARG" ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      exit 1
+      ;;
+    :)
+      echo "Option -$OPTARG requires an argument." >&2
+      exit 1
+      ;;
   esac
 done
 

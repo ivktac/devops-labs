@@ -1,0 +1,20 @@
+ARG JAVA_VERSION=11
+
+FROM openjdk:${JAVA_VERSION}-jdk-slim
+
+ARG GRADLE_VERSION=7.0.2
+
+RUN apt-get update && apt-get install -y unzip wget
+
+RUN wget -q https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip \
+  && unzip gradle-${GRADLE_VERSION}-bin.zip -d /opt \
+  && rm gradle-${GRADLE_VERSION}-bin.zip
+
+ENV GRADLE_HOME=/opt/gradle-${GRADLE_VERSION}
+ENV PATH=${GRADLE_HOME}/bin:${PATH}
+
+# COPY . /app
+
+# WORKDIR /app
+
+CMD ["gradle", "-v"]
