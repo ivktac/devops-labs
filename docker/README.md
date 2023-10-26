@@ -14,7 +14,7 @@
 
 ### 2. Build a Mongo image (with volume)
 
-`docker build -f mongo/Dockerfile -t my-mongo-image --build-arg MONGO_VERSION=4.4 --build-arg MONGO_INITDB_ROOT_USERNAME=root --build-arg MONGO_INITDB_ROOT_PASSWORD=secret .
+`docker build -f mongo/Dockerfile -t my-mongo-image --build-arg MONGO_VERSION=4.4 --build-arg MONGO_INITDB_ROOT_USERNAME=root --build-arg MONGO_INITDB_ROOT_PASSWORD=secret .`
 
 `docker run -d -p 27017:27017 -v ./data/db:/data/db --name mongo-container my-mongo-image`
 
